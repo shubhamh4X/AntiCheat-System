@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: anti-cheat-system
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: anti-cheat
+  template:
+    metadata:
+      labels:
+        app: anti-cheat
+    spec:
+      containers:
+        - name: anti-cheat-container
+          image: anti-cheat-system
+          ports:
+            - containerPort: 5000
